@@ -1,4 +1,7 @@
 "use client";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 
 type Article = {
@@ -27,12 +30,31 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>作成した記事の一覧</h1>
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{ fontWeight: "bold", margin: "2rem 0", color: "#3F3D56" }}
+      >
+        作成した記事の一覧
+      </Typography>
       {articles.map((article, index) => (
-        <div key={index} className="articleList">
-          <h3 className="articleTitle">{article.title}</h3>
-          <div className="articleContent">{article.content}</div>
-        </div>
+        <Card
+          key={index}
+          sx={{ marginBottom: 3, boxShadow: "0 3px 5px rgba(0,0,0,0.2)" }}
+        >
+          <CardContent>
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{ marginBottom: 1, fontWeight: "bold", color: "#044D40" }}
+            >
+              {article.title}
+            </Typography>
+            <Typography variant="body1" sx={{ color: "#666" }}>
+              {article.content}
+            </Typography>
+          </CardContent>
+        </Card>
       ))}
     </div>
   );

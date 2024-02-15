@@ -1,5 +1,9 @@
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import * as React from "react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +19,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body>
+        <AppBar
+          position="static"
+          sx={{
+            backgroundColor: "#04AA5A",
+            boxShadow: "none",
+            color: "#FFFFFF",
+          }}
+        >
+          <Toolbar>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, color: "#FFFFFF", fontSize: "35px" }}
+            >
+              TQブログ
+            </Typography>
+            {/* ここに他のナビゲーションリンクやコンポーネントを追加できます */}
+          </Toolbar>
+        </AppBar>
+        <main className={`${inter.className} main-content`}>{children}</main>
+      </body>
     </html>
   );
 }
