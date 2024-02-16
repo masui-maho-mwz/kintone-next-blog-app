@@ -1,3 +1,4 @@
+import HamburgerMenu from "@/components/hamburger-menu";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -37,10 +38,15 @@ export default function RootLayout({
             >
               TQブログ
             </Typography>
-            {/* ここに他のナビゲーションリンクやコンポーネントを追加できます */}
+            <HamburgerMenu />
           </Toolbar>
         </AppBar>
-        <main className={`${inter.className} main-content`}>{children}</main>
+        <main
+          className={`${inter.className} main-content`}
+          style={{ width: "100%", maxWidth: "1200px", padding: "0 120px" }}
+        >
+          {children}
+        </main>
       </body>
     </html>
   );
