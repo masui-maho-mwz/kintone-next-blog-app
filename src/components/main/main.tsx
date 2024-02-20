@@ -1,12 +1,15 @@
 "use client";
 import { ArticlesBox } from "@/components/main/articles-box/articles-box";
 import { PageTitle } from "@/components/main/page-title/page-title";
+import { useTheme } from "@emotion/react";
+import { Box } from "@mui/material";
 
-export default function Home() {
+export const Main = () => {
+  const theme = useTheme();
   return (
-    <div>
+    <Box component="main" mt={3} px={8} width={1} maxWidth={1200}>
       <PageTitle />
       <ArticlesBox />
-    </div>
+    </Box>
   );
-}
+};

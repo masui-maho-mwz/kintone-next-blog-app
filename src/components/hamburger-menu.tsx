@@ -5,8 +5,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React, { useState } from "react";
 
-// TODO: export const だとエラーになる再現して原因を理解する
-const HamburgerMenu = () => {
+export const HamburgerMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -19,8 +18,7 @@ const HamburgerMenu = () => {
   };
 
   return (
-    // TODO: <>でない方が良いかな
-    <>
+    <div>
       <IconButton
         size="large"
         edge="start"
@@ -46,8 +44,6 @@ const HamburgerMenu = () => {
         <MenuItem onClick={handleClose}>ZZZZ</MenuItem>
         <MenuItem onClick={handleClose}>ログアウト</MenuItem>
       </Menu>
-    </>
+    </div>
   );
 };
-
-export default HamburgerMenu;

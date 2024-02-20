@@ -29,13 +29,14 @@ export default async function handler(
     type KintoneRecord = {
       title: { value: string };
       content: { value: string };
+      作成日時: { value: string };
     };
 
     const articles = data.records.map((record: KintoneRecord) => ({
       title: record.title.value,
       content: record.content.value,
+      created_time: record["作成日時"].value.split("T")[0],
     }));
-
     res.status(200).json(articles);
   } catch (error) {
     console.error("Error fetching Kintone records:", error);
